@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Autenticación</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon class="btnx" name="close" (click)="cerrarModal()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen=true>
+
+
+
+<ion-img  class="sa"src="assets/img/acces.svg"></ion-img>
+
+
+  <!-- Default Segment -->
+<ion-segment  (ionChange)="cEstado($event)" value="Login">
+  <ion-segment-button value="Login">
+    <ion-label>Login</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="Registrar">
+    <ion-label>Registrar</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+
+
+<div *ngIf="estado">
+  <form  #formulario="ngForm" (ngSubmit) ="loginSubmit()">
+    
+    <ion-item>
+        <ion-label position='floating' >Email: </ion-label>
+        <ion-input type="email" placeholder="Correo electrónico:"
+                    name="email" [(ngModel)]= "usuario.email"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                    required>
+        </ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position='floating' >Password: </ion-label>
+        <ion-input type="password" placeholder="Contraseña:"
+            name="password" [(ngModel)]= "usuario.password"
+            required>
+        </ion-input>
+    </ion-item>
+    
+    
+    
+    <ion-button [disabled] ="formulario.invalid"
+            type="submit" expand="block"
+            
+            
+            >
+        LOGIN
+        </ion-button>
+
+           
+    
+    </form>
+</div>
+
+<div *ngIf="!estado">
+
+  <form  #formulario="ngForm" (ngSubmit) ="registerSubmit()">
+
+
+
+    <ion-item>
+        <ion-label position='floating' >Nombre Completo: </ion-label>
+            <ion-input type="name" placeholder="Nombre completo:"
+                        name="name" [(ngModel)]= "usuario.name"
+                        required>
+            </ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position='floating' >Nombre de usuario: </ion-label>
+            <ion-input type="nickname" placeholder="Nombre de usuario:"
+                        name="nickname" [(ngModel)]= "usuario.nickname"
+                        required>
+            </ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position='floating' >Telefono: </ion-label>
+            <ion-input type="tel" placeholder="Número de teléfono:"
+                        name="tel" [(ngModel)]= "usuario.telefono"
+                        required>
+            </ion-input>
+    </ion-item>
+    
+    
+    
+    
+    <ion-item>
+        <ion-label position='floating' >Email: </ion-label>
+        <ion-input type="email" placeholder="Correo electrónico:"
+                    name="email" [(ngModel)]= "usuario.email"
+                    pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                    required>
+        </ion-input>
+    </ion-item>
+    
+    <ion-item>
+        <ion-label position='floating' >Password: </ion-label>
+        <ion-input type="password" placeholder="Contraseña:"
+            name="password" [(ngModel)]= "usuario.password"
+            required>
+        </ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label position='start' >fotografia:</ion-label>
+      
+      <ion-buttons slot="end">
+          <ion-button (click)="usuario.foto=''" expand="block" fill="clear" shape="round">
+              <ion-icon color="danger" slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+          <ion-button >
+              <label for="file-upload">
+              <ion-icon slot="icon-only" name="image"></ion-icon>
+              </label>
+              <input (change)="newImagePro($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+          </ion-button>
+          
+      </ion-buttons>
+  </ion-item>
+  <ion-img [src]="usuario.foto"></ion-img>
+    
+    
+    <ion-button [disabled] ="formulario.invalid"
+            type="submit" expand="block"
+            >
+        Registrar 
+        </ion-button>
+    
+    </form>
+
+
+  
+</div>
+
+
+</ion-content>

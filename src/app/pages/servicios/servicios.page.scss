@@ -1,0 +1,38 @@
+/* Container */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    max-width: 600px; /* Maximum width */
+    margin: 0 auto; /* Center it */
+    margin-bottom: -8px;
+    
+    }
+    
+    /* titulo */
+  .titulo {
+      position: absolute;
+      bottom: 40px;
+      left: 16px;
+      font-size:25px;
+    }
+    
+  /* SSubtitulo */
+  .subtt {
+    position: absolute;
+    bottom: 13px;
+    left: 16px;
+    font-size:18px;
+    
+    } 
+  .container .content {
+    position: absolute; /* Position the background text */
+    top: 1px;
+    bottom: 0px; /* At the bottom. Use top:0 to append it to the top */
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.2); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 20px; /* Some padding */
+    
+    }

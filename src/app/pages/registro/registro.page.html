@@ -1,0 +1,122 @@
+<app-header titulo="Registro"></app-header>
+<div class="posi">
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="NewItem()">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+</div>
+
+<ion-content>
+
+  
+
+ 
+<div class="formi" *ngIf='enableNewProduct'>
+<form  #formulario="ngForm" (ngSubmit) ="guardarProducto()">
+
+    
+
+    <h3 class="encabezado">Ingrese datos del producto</h3>
+    <ion-item>
+        <ion-buttons slot="end">
+            <ion-button (click)="enableNewProduct=false">
+             <ion-icon class="iconx" slot="icon-only" name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+     </ion-item>
+
+    <ion-item >
+        <ion-label position='floating' >Direccion:</ion-label>
+        <ion-input [(ngModel)]="newProducto.nombre" name="nombre"  type="text" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Region:</ion-label>
+        <ion-input [(ngModel)]="newProducto.region" name="region" type="text" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Precio:</ion-label>
+        <ion-input [(ngModel)]="newProducto.precio" name="precio" type="number" placeholder="Awesome Input" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Tiempo de arriendo:</ion-label>
+        <ion-input [(ngModel)]="newProducto.tiempo" name="tiempo" type="text" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Tipo de vehículo:</ion-label>
+        <ion-input [(ngModel)]="newProducto.personas" name="personas" type="text" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Dias Disponibles:</ion-label>
+        <ion-input [(ngModel)]="newProducto.slot"type="text" name="slot" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Descripcion:</ion-label>
+        <ion-input [(ngModel)]="newProducto.resumen"type="text" name="resumen" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Bloque horario:</ion-label>
+        <ion-input [(ngModel)]="newProducto.itinerario" type="text"  name="itinerario" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Latitud:</ion-label> 
+        <ion-input [(ngModel)]="newProducto.latitud" type="text"  name="latitud"  placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='floating' >Longitud:</ion-label>
+        <ion-input [(ngModel)]="newProducto.longitud" type="text"  name="longitud" placeholder="Awesome Input" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label position='start' >fotografia:</ion-label>
+        
+        <ion-buttons slot="end">
+            <ion-button (click)="newProducto.foto=''" expand="block" fill="clear" shape="round">
+                <ion-icon color="danger" slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+            <ion-button >
+                <label for="file-upload">
+                <ion-icon slot="icon-only" name="image"></ion-icon>
+                </label>
+                <input (change)="newImagePro($event)" id="file-upload" style="display: none;" type="file" accept="image/*">
+            </ion-button>
+            
+        </ion-buttons>
+    </ion-item>
+    <ion-item>
+        <ion-img [src]="newProducto.foto"></ion-img>
+    </ion-item>
+
+  
+    <ion-button 
+    type="submit" expand="block"
+    >
+Guardar
+</ion-button>
+
+</form>
+
+</div>
+
+
+
+<h3 class="encabezado">Lista de productos</h3>
+<div class="formi">
+<ion-item *ngFor='let producto of productos'>
+    <ion-label>{{producto.nombre}}</ion-label>
+    <ion-buttons slot="end">
+
+        <ion-button (click)="newProducto=producto;enableNewProduct=true">
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="deleteProduct(producto)">
+            <ion-icon color="danger"  slot="icon-only" name="trash-bin"></ion-icon>
+        </ion-button>
+        
+    </ion-buttons>
+</ion-item>
+
+</div>
+
+</ion-content>
+

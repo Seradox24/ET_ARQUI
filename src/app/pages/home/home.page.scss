@@ -1,0 +1,79 @@
+@import 'swiper/css/bundle';
+
+.slides{
+    margin-top: 10px;
+    img{
+        border-radius: 10px;
+        box-shadow: -1px 11px 13px -6px rgb(87,86,86,);
+    }
+}
+.slides2{
+    margin-top: 10px;
+    margin-bottom: 0;
+    img{
+        border-radius: 10px;
+        margin-bottom: 10px;
+        
+    }
+}
+.title{
+    position: absolute;
+    bottom:0;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    padding: 10px;
+    text-shadow: 1px 1px 2px grey;
+    font-size:30px;
+}
+
+.ion-slide{
+    padding-bottom: 20px;
+}
+
+
+.textf{
+    font-weight: bold;
+    font-size:16px;
+    margin-left: 10px;
+    margin-bottom: -7px;
+}
+.textf1{
+    font-weight: bold;
+    font-size:16px;
+    margin-left: -10px;
+
+}
+.textf3{
+    font-weight: bold;
+    font-size:16px;
+    margin-left: 10px;
+
+}
+
+.top{
+    margin-top: 10px;
+    margin-left: -9px;
+}
+.top2{
+    margin-top: -10px;
+    margin-left: -9px;
+}
+
+.space-1{
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.containersc{
+    border-radius: 10px;
+    box-shadow: -1px 11px 13px -6px rgb(87,86,86,);
+}
+
+
+
+
+.about{
+    margin-top: -200px;
+}
+

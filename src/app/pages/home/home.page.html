@@ -1,0 +1,109 @@
+<ion-header class="ion-no-border"  mode='ios' >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first" color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="primary">HOME</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="location" mode="ios" color="danger" ></ion-icon>
+     <a (click)="gps()" decorations="false"><p class="textf3">Viña</p></a> 
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content mode="ios" fullscreen>
+  <p class="textf">
+    <ion-text >
+      <ion-text color="primary" style="font-size:20px" >
+        Hola
+     </ion-text>¿Qué estás buscando? 
+     
+    </ion-text>
+  </p>
+  <ion-searchbar></ion-searchbar>
+<!--   
+<ion-button (click)="logOut()" expand="block" fill="clear" shape="round">
+  logout
+</ion-button>
+
+<ion-button (click)="getUser()" expand="block" fill="clear" shape="round">
+  getuser
+</ion-button>
+
+<ion-button (click)="getUid()" expand="block" fill="clear" shape="round">
+  getuid123
+</ion-button>
+getUid() -->
+<!--carrusel  -->
+
+
+
+  <ion-slides  class="slides" [options] = 'slideOpts4'>
+    <ion-slide *ngFor="let producto of productos| slice:0:3 "> 
+
+  
+      <ion-card  (click)="presentModal(
+    producto.nombre,producto.region,producto.precio,
+    producto.tiempo,producto.personas,producto.slot,
+    producto.resumen,producto.itinerario,producto.latitud,
+    producto.longitud,producto.foto,producto
+    )">
+    <ion-img class="mediana" [src]="producto.foto"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{producto.nombre}}</ion-card-title>
+      <ion-card-subtitle>precio: ${{producto.precio}}</ion-card-subtitle>     
+    </ion-card-header>
+  
+    <ion-card-content>
+    {{producto.resumen}}
+    </ion-card-content>
+  </ion-card>
+
+
+    </ion-slide>
+  </ion-slides>
+
+ 
+
+
+
+
+
+  <!--carrusel  card --> 
+
+  <p class="textf">Populares</p>
+  <p>Los estacionamientos mejor valorados</p>
+
+<ion-slides  class="slides" [options] = 'slideOpts4'>
+  <ion-slide *ngFor="let des of destinos">
+    <a  target="_blank" ><img src="{{des.imagen}}" alt=""></a>
+    <p class="title">{{des.titulo}}</p>
+
+  </ion-slide>
+</ion-slides>
+<p class="textf">Nuevos</p>
+<p>Los ultimos estacionamientos agregados</p>
+<ion-slides  class="slides" [options] = 'slideOpts4'>
+  <ion-slide *ngFor="let x of exp">
+    <a href="www.google.com" target="_blank" ><img src="{{x.imagen}}" alt=""></a>
+    <p class="title">{{x.titulo}}</p>
+
+  </ion-slide>
+</ion-slides>
+  
+
+
+
+<ion-card>
+  <ion-card-header>
+    
+    <ion-card-title>¿Quiénes somos?</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    Arrienda tu estacionamiento es una empresa que  tiene como meta digitalizar y dar un nuevo aire a la industria del arriendo haciéndola más interactiva en pos de la facilidad
+    <ion-img src="assets/img/qsm.svg"></ion-img>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

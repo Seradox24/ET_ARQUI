@@ -1,0 +1,30 @@
+<app-header titulo="Mis Arriendos"></app-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let producto of producto">
+    <ion-grid >
+      <ion-row>
+
+        <ion-col size="4">
+          <img src="{{producto.imagen}}" >
+        </ion-col>
+        <ion-col size="8">
+          <ion-label>Direccion: {{producto.nombre}}</ion-label>
+          <p></p>
+          <ion-label>Cantidad de horas:{{producto.cantidad}} Hrs</ion-label>
+          <p></p>
+          <ion-label>Precio $:{{producto.precio}}</ion-label>
+
+        </ion-col>
+       
+        
+      </ion-row>
+    </ion-grid>
+
+    
+    
+  </ion-card>
+
+
+</ion-content>
